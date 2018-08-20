@@ -1,0 +1,16 @@
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\bin\Release\Symphony_Work2.exe
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\bin\Release\Symphony_Work2.pdb
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\bin\Release\Symphony_Work2.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\obj\x86\Release\Symphony_Work2.Resources.resources
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\obj\x86\Release\Symphony_Work2.vbproj.GenerateResource.Cache
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\obj\x86\Release\Symphony_Work2.exe
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\obj\x86\Release\Symphony_Work2.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\Symphony_Work2\obj\x86\Release\Symphony_Work2.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\obj\x86\Release\Symphony_Work2.exe
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\obj\x86\Release\Symphony_Work2.xml
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\obj\x86\Release\Symphony_Work2.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\bin\Release\Symphony_Work2.exe
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\bin\Release\Symphony_Work2.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\bin\Release\Symphony_Work2.xml
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\obj\x86\Release\Symphony_Work2.Resources.resources
+C:\Users\yoshi\documents\visual studio 2010\Projects\Symphony_Work2\Symphony_Work2\obj\x86\Release\Symphony_Work2.vbproj.GenerateResource.Cache
