@@ -107,6 +107,12 @@
     <Compile Include="勤務割.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="職員リスト.Designer.vb">
+      <DependentUpon>職員リスト.vb</DependentUpon>
+    </Compile>
+    <Compile Include="職員リスト.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="週間表.Designer.vb">
       <DependentUpon>週間表.vb</DependentUpon>
     </Compile>
@@ -124,6 +130,15 @@
     <EmbeddedResource Include="TopForm.resx">
       <DependentUpon>TopForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="勤務割.resx">
+      <DependentUpon>勤務割.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="職員リスト.resx">
+      <DependentUpon>職員リスト.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="週間表.resx">
+      <DependentUpon>週間表.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -135,6 +150,18 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

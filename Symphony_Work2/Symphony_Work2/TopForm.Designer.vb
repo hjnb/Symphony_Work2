@@ -26,7 +26,9 @@ Partial Class TopForm
         Me.btnWeek = New System.Windows.Forms.Button()
         Me.btnCsv = New System.Windows.Forms.Button()
         Me.rbtnPreview = New System.Windows.Forms.RadioButton()
-        Me.rbtnPrint = New System.Windows.Forms.RadioButton()
+        Me.rbtnPrintout = New System.Windows.Forms.RadioButton()
+        Me.lblday = New System.Windows.Forms.Label()
+        Me.lblFloor = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnWork
@@ -74,22 +76,44 @@ Partial Class TopForm
         Me.rbtnPreview.Text = "ﾌﾟﾚﾋﾞｭｰ"
         Me.rbtnPreview.UseVisualStyleBackColor = True
         '
-        'rbtnPrint
+        'rbtnPrintout
         '
-        Me.rbtnPrint.AutoSize = True
-        Me.rbtnPrint.Location = New System.Drawing.Point(619, 176)
-        Me.rbtnPrint.Name = "rbtnPrint"
-        Me.rbtnPrint.Size = New System.Drawing.Size(47, 16)
-        Me.rbtnPrint.TabIndex = 4
-        Me.rbtnPrint.Text = "印刷"
-        Me.rbtnPrint.UseVisualStyleBackColor = True
+        Me.rbtnPrintout.AutoSize = True
+        Me.rbtnPrintout.Location = New System.Drawing.Point(619, 176)
+        Me.rbtnPrintout.Name = "rbtnPrintout"
+        Me.rbtnPrintout.Size = New System.Drawing.Size(47, 16)
+        Me.rbtnPrintout.TabIndex = 4
+        Me.rbtnPrintout.Text = "印刷"
+        Me.rbtnPrintout.UseVisualStyleBackColor = True
+        '
+        'lblday
+        '
+        Me.lblday.AutoSize = True
+        Me.lblday.Location = New System.Drawing.Point(822, 59)
+        Me.lblday.Name = "lblday"
+        Me.lblday.Size = New System.Drawing.Size(29, 12)
+        Me.lblday.TabIndex = 5
+        Me.lblday.Text = "日付"
+        Me.lblday.Visible = False
+        '
+        'lblFloor
+        '
+        Me.lblFloor.AutoSize = True
+        Me.lblFloor.Location = New System.Drawing.Point(820, 85)
+        Me.lblFloor.Name = "lblFloor"
+        Me.lblFloor.Size = New System.Drawing.Size(11, 12)
+        Me.lblFloor.TabIndex = 6
+        Me.lblFloor.Text = "2"
+        Me.lblFloor.Visible = False
         '
         'TopForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 649)
-        Me.Controls.Add(Me.rbtnPrint)
+        Me.Controls.Add(Me.lblFloor)
+        Me.Controls.Add(Me.lblday)
+        Me.Controls.Add(Me.rbtnPrintout)
         Me.Controls.Add(Me.rbtnPreview)
         Me.Controls.Add(Me.btnCsv)
         Me.Controls.Add(Me.btnWeek)
@@ -104,6 +128,8 @@ Partial Class TopForm
     Friend WithEvents btnWeek As System.Windows.Forms.Button
     Friend WithEvents btnCsv As System.Windows.Forms.Button
     Friend WithEvents rbtnPreview As System.Windows.Forms.RadioButton
-    Friend WithEvents rbtnPrint As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtnPrintout As System.Windows.Forms.RadioButton
+    Friend WithEvents lblday As System.Windows.Forms.Label
+    Friend WithEvents lblFloor As System.Windows.Forms.Label
 
 End Class

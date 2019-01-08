@@ -62,7 +62,7 @@
 
     Private Sub btnWeek_Click(sender As System.Object, e As System.EventArgs) Handles btnWeek.Click
         If IsNothing(weekForm) OrElse weekForm.IsDisposed Then
-            weekForm = New 週間表()
+            weekForm = New 週間表(lblday.Text, lblFloor.Text)
             weekForm.Owner = Me
             weekForm.Show()
         End If
