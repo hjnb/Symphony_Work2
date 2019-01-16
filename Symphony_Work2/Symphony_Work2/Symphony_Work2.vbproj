@@ -58,6 +58,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="ymdBox">
+      <HintPath>\\primergytx100s1\Hakojun\事務\さかもと\Visual Studio 2010\Projects\ymdBox\ymdBox\ymdBox\bin\Release\ymdBox.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -76,6 +79,12 @@
       <DependentUpon>CSV作成.vb</DependentUpon>
     </Compile>
     <Compile Include="CSV作成.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passwordForm.Designer.vb">
+      <DependentUpon>passwordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="passwordForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TopForm.vb">
@@ -101,10 +110,22 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Util.vb" />
+    <Compile Include="workDataGridView.Designer.vb">
+      <DependentUpon>workDataGridView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="workDataGridView.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="勤務割.Designer.vb">
       <DependentUpon>勤務割.vb</DependentUpon>
     </Compile>
     <Compile Include="勤務割.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="同姓略名.Designer.vb">
+      <DependentUpon>同姓略名.vb</DependentUpon>
+    </Compile>
+    <Compile Include="同姓略名.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="職員リスト.Designer.vb">
@@ -127,11 +148,17 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="passwordForm.resx">
+      <DependentUpon>passwordForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TopForm.resx">
       <DependentUpon>TopForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="勤務割.resx">
       <DependentUpon>勤務割.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="同姓略名.resx">
+      <DependentUpon>同姓略名.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="職員リスト.resx">
       <DependentUpon>職員リスト.vb</DependentUpon>
@@ -161,6 +188,42 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Office">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

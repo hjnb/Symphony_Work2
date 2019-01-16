@@ -6,7 +6,124 @@ Symphony_Work2
 </name>
 </assembly>
 <members>
-<member name="M:Symphony_Work2.Util.EnableDoubleBuffering(System.Windows.Forms.Control)">
+<member name="M:Symphony_Work2.同姓略名.#ctor(System.String)">
+	<summary>
+ コンストラクタ
+ </summary>
+	<param name="ymStr">選択している年月(yyyy/MM)</param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.同姓略名_Load(System.Object,System.EventArgs)">
+	<summary>
+ Loadイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.displayNamList">
+	<summary>
+ 氏名リスト表示
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.displayDgvNam">
+	<summary>
+ 略名dgv表示
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.settingComponent">
+	<summary>
+ 各コンポーネント設定
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.namList_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ 氏名リストクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.dgvNam_CellMouseClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+	<summary>
+ dgvセルマウスクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.dgvNam_CellPainting(System.Object,System.Windows.Forms.DataGridViewCellPaintingEventArgs)">
+	<summary>
+ dgvCellPaintingイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.btnRegist_Click(System.Object,System.EventArgs)">
+	<summary>
+ 登録ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.同姓略名.btnDelete_Click(System.Object,System.EventArgs)">
+	<summary>
+ 削除ボタンイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.workDataGridView_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+	<summary>
+ セル編集終了時イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.workDataGridView_CellEnter(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+	<summary>
+ セルエンターイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.ExDataGridView_CellPainting(System.Object,System.Windows.Forms.DataGridViewCellPaintingEventArgs)">
+	<summary>
+ CellPaintingイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.workDataGridView_ColumnHeaderMouseClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+	<summary>
+ 列ヘッダーマウスクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.workDataGridView_EditingControlShowing(System.Object,System.Windows.Forms.DataGridViewEditingControlShowingEventArgs)">
+	<summary>
+ セル編集時に表示されるテキストボックスイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.dgvTextBox_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+	<summary>
+ セル編集用keyPress処理
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.setUnitDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ ユニット名dicセット
+ </summary>
+	<param name="unitDictionary"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.workDataGridView.setWordDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ 勤務略名dicセット
+ </summary>
+	<param name="wordDictionary"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.Util.EnableDoubleBuffering(System.Windows.Forms.Control)">
 	<summary>
  コントロールのDoubleBufferedプロパティをTrueにする
  </summary>
@@ -71,6 +188,181 @@ Symphony_Work2
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:Symphony_Work2.勤務割.勤務割_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+	<summary>
+ keyDownイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.勤務割_Load(System.Object,System.EventArgs)">
+	<summary>
+ loadイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.createDictionary">
+	<summary>
+ dic作成
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.createCellStyles">
+	<summary>
+ セルスタイル作成
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.initDgvWork">
+	<summary>
+ dgv初期設定
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.setEmptyCell">
+	<summary>
+ 空行作成
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.settingDgvWorkColumnsAndRows(System.Int32,System.Int32)">
+	<summary>
+ dgv列行スタイル設定等
+ </summary>
+	<param name="year"></param>
+	<param name="month"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.setDayCharRow(System.Int32,System.Int32)">
+	<summary>
+ 曜日行作成
+ </summary>
+	<param name="year"></param>
+	<param name="month"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.setReadonlyCell">
+	<summary>
+ readonlyセルの設定
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.setSeqValue">
+	<summary>
+ 行番号(seq)セット
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.displayWork(System.String,System.String,System.Boolean)">
+	<summary>
+ 勤務割表示
+ </summary>
+	<param name="ymStr">年月(yyyy/MM)</param>
+	<param name="floor">階</param>
+	<param name="deleteAfterFlg"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.ymBox_YmLabelTextChange(System.Object,System.EventArgs)">
+	<summary>
+ 年月ボックス変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.floorRadioButton_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ 階ラジオボタン変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.monthDataDelete(System.String,System.String,ADODB.Connection)">
+	<summary>
+ 対象年月階のデータを削除
+ </summary>
+	<param name="ymStr">年月(yyyy/MM)</param>
+	<param name="floor">階</param>
+	<param name="cnn">データベースコネクション</param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.existsWorkStr(System.Windows.Forms.DataGridViewRow)">
+	<summary>
+ 対象行に勤務の入力があるかチェック
+ </summary>
+	<param name="row">dgv行</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.existsNoneDayCell(System.Windows.Forms.DataGridViewRow,System.String)">
+	<summary>
+ 曜日の無い列に対象の行が入力があるかチェック
+ </summary>
+	<param name="row">dgv行</param>
+	<param name="ymStr">年月(yyyy/MM)</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.subtotalClear">
+	<summary>
+ 小計のクリア
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.btnRowAdd_Click(System.Object,System.EventArgs)">
+	<summary>
+ 行追加ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.btnRowDelete_Click(System.Object,System.EventArgs)">
+	<summary>
+ 行削除ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.btnRegist_Click(System.Object,System.EventArgs)">
+	<summary>
+ 登録ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.btnDelete_Click(System.Object,System.EventArgs)">
+	<summary>
+ 削除ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.btnPrint_Click(System.Object,System.EventArgs)">
+	<summary>
+ 印刷ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.writeWorkTotalTable(System.Object,ADODB.Connection,System.String)">
+	<summary>
+ 勤務割横計表書き込み
+ </summary>
+	<param name="osheet">書き込み対象シート</param>
+	<param name="cnn">データベースコネクション</param>
+	<param name="type">勤務種類</param>
+	<returns>シートへの書き込みの有無</returns>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.writeWorkTable(System.Object,ADODB.Connection,System.String)">
+	<summary>
+ 勤務割表書き込み
+ </summary>
+	<param name="osheet">書き込み対象シート</param>
+	<param name="cnn">データベースコネクション</param>
+	<param name="type">勤務種類</param>
+	<returns>シートへの書き込みの有無</returns>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.writePersonalCalendar(System.Object,ADODB.Connection)">
+	<summary>
+ 個人別勤務割書き込み
+ </summary>
+	<param name="oSheet">書き込み対象シート</param>
+	<param name="cnn">データベースコネクション</param>
+	<remarks></remarks>
+</member><member name="M:Symphony_Work2.勤務割.getColumnAlphabet(System.Int32)">
+	<summary>
+ エクセル列番号文字列を取得
+ </summary>
+	<param name="num">列番号数値</param>
+	<returns>エクセル列番号文字</returns>
+	<remarks></remarks>
 </member>
 </members>
 </doc>
