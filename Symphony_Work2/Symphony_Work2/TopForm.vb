@@ -50,6 +50,9 @@
         '
         '
 
+        '印刷ラジオボタンの初期設定
+        initPrintState()
+
     End Sub
 
     Private Sub btnWork_Click(sender As Object, e As EventArgs) Handles btnWork.Click
@@ -73,6 +76,27 @@
             csvForm = New CSV作成()
             csvForm.Owner = Me
             csvForm.Show()
+        End If
+    End Sub
+
+    Private Sub initPrintState()
+        Dim state As String = Util.getIniString("System", "Printer", iniFilePath)
+        If state = "Y" Then
+            rbtnPrintout.Checked = True
+        Else
+            rbtnPreview.Checked = True
+        End If
+    End Sub
+
+    Private Sub rbtnPreview_CheckedChanged(sender As Object, e As System.EventArgs) Handles rbtnPreview.CheckedChanged
+        If rbtnPreview.Checked = True Then
+            Util.putIniString("System", "Printer", "N", iniFilePath)
+        End If
+    End Sub
+
+    Private Sub rbtnPrint_CheckedChanged(sender As Object, e As System.EventArgs) Handles rbtnPrintout.CheckedChanged
+        If rbtnPrintout.Checked = True Then
+            Util.putIniString("System", "Printer", "Y", iniFilePath)
         End If
     End Sub
 End Class
