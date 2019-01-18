@@ -10,8 +10,7 @@
     Public iniFilePath As String = My.Application.Info.DirectoryPath & "\Work2.ini"
 
     '画像パス
-    'Public imageFilePath As String = My.Application.Info.DirectoryPath & "\"
-
+    Public imageFilePath As String = My.Application.Info.DirectoryPath & "\Work2.png"
 
     Private workForm As 勤務割
     Private weekForm As 週間表
@@ -37,18 +36,19 @@
             Exit Sub
         End If
 
-        'If Not System.IO.File.Exists(imageFilePath) Then
-        '    MsgBox("画像ファイルが存在しません。ファイルを配置して下さい。")
-        '    Me.Close()
-        '    Exit Sub
-        'End If
+        If Not System.IO.File.Exists(imageFilePath) Then
+            MsgBox("画像ファイルが存在しません。ファイルを配置して下さい。")
+            Me.Close()
+            Exit Sub
+        End If
 
+        '画面サイズ等
         Me.WindowState = FormWindowState.Maximized
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+
         '画像の配置処理
-        '
-        '
+        topPicture.ImageLocation = imageFilePath
 
         '印刷ラジオボタンの初期設定
         initPrintState()
@@ -98,6 +98,10 @@
         If rbtnPrintout.Checked = True Then
             Util.putIniString("System", "Printer", "Y", iniFilePath)
         End If
+    End Sub
+
+    Private Sub topPicture_Click(sender As System.Object, e As System.EventArgs) Handles topPicture.Click
+        Me.Close()
     End Sub
 End Class
 

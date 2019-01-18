@@ -29,6 +29,8 @@ Partial Class TopForm
         Me.rbtnPrintout = New System.Windows.Forms.RadioButton()
         Me.lblday = New System.Windows.Forms.Label()
         Me.lblFloor = New System.Windows.Forms.Label()
+        Me.topPicture = New System.Windows.Forms.PictureBox()
+        CType(Me.topPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnWork
@@ -104,11 +106,20 @@ Partial Class TopForm
         Me.lblFloor.Text = "2"
         Me.lblFloor.Visible = False
         '
+        'topPicture
+        '
+        Me.topPicture.Location = New System.Drawing.Point(551, 58)
+        Me.topPicture.Name = "topPicture"
+        Me.topPicture.Size = New System.Drawing.Size(106, 103)
+        Me.topPicture.TabIndex = 7
+        Me.topPicture.TabStop = False
+        '
         'TopForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 649)
+        Me.Controls.Add(Me.topPicture)
         Me.Controls.Add(Me.lblFloor)
         Me.Controls.Add(Me.lblday)
         Me.Controls.Add(Me.rbtnPrintout)
@@ -118,6 +129,7 @@ Partial Class TopForm
         Me.Controls.Add(Me.btnWork)
         Me.Name = "TopForm"
         Me.Text = "特養勤務割"
+        CType(Me.topPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -129,5 +141,6 @@ Partial Class TopForm
     Friend WithEvents rbtnPrintout As System.Windows.Forms.RadioButton
     Friend WithEvents lblday As System.Windows.Forms.Label
     Friend WithEvents lblFloor As System.Windows.Forms.Label
+    Friend WithEvents topPicture As System.Windows.Forms.PictureBox
 
 End Class
