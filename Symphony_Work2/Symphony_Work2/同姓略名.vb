@@ -59,7 +59,7 @@ Public Class 同姓略名
     ''' <remarks></remarks>
     Private Sub displayNamList()
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "SELECT * FROM KinD WHERE YM='" & selectedYmstr & "' order by Seq2, Seq"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
@@ -78,7 +78,7 @@ Public Class 同姓略名
     Private Sub displayDgvNam()
         dgvNam.DataSource = Nothing
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "SELECT Nam, NNam FROM SNam order by Nam"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
@@ -215,7 +215,7 @@ Public Class 同姓略名
         End If
 
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "select Nam,NNam from SNam where Nam='" & selectedNam & "'"
         rs.Open(Sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
@@ -269,7 +269,7 @@ Public Class 同姓略名
         End If
 
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "select Nam,NNam from SNam where Nam='" & selectedNam & "'"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)

@@ -104,7 +104,7 @@
             'レコード作成
             Dim count As Integer = 1
             Dim cnn As New ADODB.Connection
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
             Dim rs As New ADODB.Recordset
             '常勤部分
             Dim sql = "SELECT * FROM KinD WHERE YM='" & ymStr & "' AND Rdr<>'' AND ((Seq2='00' AND Unt='※') OR ('20' <= Seq2 AND Seq2 <= '39')) order by Rdr, Seq, Seq2"

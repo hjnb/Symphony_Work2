@@ -69,7 +69,7 @@ Public Class 週間表
         MadeStyle()
         Me.WindowState = FormWindowState.Maximized
         'DataGridView1の設定
-        Dim Cn As New OleDbConnection(TopForm.DB_Work)
+        Dim Cn As New OleDbConnection(TopForm.DB_Work2)
         Dim SQLCm As OleDbCommand = Cn.CreateCommand
         Dim Adapter As New OleDbDataAdapter(SQLCm)
         DGV1Table = New DataTable()
@@ -113,7 +113,7 @@ Public Class 週間表
             ElseIf c = 1 OrElse c = 5 OrElse c = 9 OrElse c = 13 OrElse c = 17 OrElse c = 21 OrElse c = 25 Then     '各日の左列
                 DataGridView1.Columns(c).Width = 30
             ElseIf c = 3 OrElse c = 7 OrElse c = 11 OrElse c = 15 OrElse c = 19 OrElse c = 23 OrElse c = 27 Then    '各日の右列
-                DataGridView1.Columns(c).Width = 17
+                DataGridView1.Columns(c).Width = 22
             End If
         Next
 
@@ -158,7 +158,7 @@ Public Class 週間表
 
         'DataGridView2の列の設定
         For c As Integer = 0 To 6
-            DataGridView2.Columns(c).Width = 157
+            DataGridView2.Columns(c).Width = 162
         Next
 
         'DataGridView2の行の設定
@@ -182,7 +182,7 @@ Public Class 週間表
         Else
             lblYmd.Text = startday
         End If
-        
+
 
         '各セルのスタイルの設定
         With DataGridView1
@@ -339,7 +339,7 @@ Public Class 週間表
         '2階と3階で共通の部分
         DataGridView1.Columns.Clear()
 
-        Dim Cn As New OleDbConnection(TopForm.DB_Work)
+        Dim Cn As New OleDbConnection(TopForm.DB_Work2)
         Dim SQLCm As OleDbCommand = Cn.CreateCommand
         Dim Adapter As New OleDbDataAdapter(SQLCm)
         DGV1Table = New DataTable()
@@ -383,7 +383,7 @@ Public Class 週間表
             Next
 
             DataGridView1.Location = New Point(18, 49)
-            DataGridView1.Size = New Size(1132, 603)
+            DataGridView1.Size = New Size(1167, 603)
             DataGridView2.Location = New Point(48, 651)
 
             'DataGridView1行作成
@@ -405,7 +405,7 @@ Public Class 週間表
             Next
 
             DataGridView1.Location = New Point(18, 49)
-            DataGridView1.Size = New Size(1132, 438)
+            DataGridView1.Size = New Size(1167, 438)
             DataGridView2.Location = New Point(48, 485)
 
             'DataGridView1行作成
@@ -429,7 +429,7 @@ Public Class 週間表
             ElseIf c = 1 OrElse c = 5 OrElse c = 9 OrElse c = 13 OrElse c = 17 OrElse c = 21 OrElse c = 25 Then     '各日の左列
                 DataGridView1.Columns(c).Width = 30
             ElseIf c = 3 OrElse c = 7 OrElse c = 11 OrElse c = 15 OrElse c = 19 OrElse c = 23 OrElse c = 27 Then    '各日の右列
-                DataGridView1.Columns(c).Width = 17
+                DataGridView1.Columns(c).Width = 22
             End If
         Next
 
@@ -689,7 +689,7 @@ Public Class 週間表
             Dim cnn As New ADODB.Connection
             Dim rs As New ADODB.Recordset
             Dim sql As String = "select * from ASHyo WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
             rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockReadOnly)
 
             'Datagridview1への表示
@@ -772,7 +772,7 @@ Public Class 週間表
             Dim cnn As New ADODB.Connection
             Dim rs As New ADODB.Recordset
             Dim sql As String = "select * from ASHyo3 WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
             rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockReadOnly)
 
             'Datagridview1への表示
@@ -854,7 +854,7 @@ Public Class 週間表
         End If
 
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim Honjitu As Date = ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 5)
         'データ削除
         Dim DelYmd As Date = ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 5)
@@ -1139,7 +1139,7 @@ Public Class 週間表
         Dim rs As New ADODB.Recordset
         Dim rsnextmonth As New ADODB.Recordset
         Dim rs2 As New ADODB.Recordset
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim SQL As String = ""
         Dim SQLnextmonth As String = ""
         Dim SQL2 As String = ""
@@ -1147,6 +1147,7 @@ Public Class 週間表
 
         Dim M As Date = ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 5)
         M = M.AddMonths(1)
+        Dim a As String = M.ToString("yyyy/MM/dd")
 
         SQL2 = "SELECT * FROM SNam"
         rs2.Open(SQL2, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
@@ -1159,7 +1160,7 @@ Public Class 週間表
             rs.Open(SQL, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
 
             If DataGridView1(2, 0).Value > 22 Then
-                SQLnextmonth = "SELECT * FROM KinD WHERE YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(M, 5, 2) & "' AND (Seq2='00' OR ('" & floar & "0' <= Seq2 AND Seq2 <= '" & floar & "9')) and Rdr = '' order by Seq"
+                SQLnextmonth = "SELECT * FROM KinD WHERE YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(a, 6, 2) & "' AND (Seq2='00' OR ('" & floar & "0' <= Seq2 AND Seq2 <= '" & floar & "9')) and Rdr = '' order by Seq"
                 rsnextmonth.Open(SQLnextmonth, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
             End If
 
@@ -1188,23 +1189,35 @@ Public Class 週間表
                         If partname(i) = "" Then
 
                         Else
-                            If partnamecheck(rs, rs2, partname(i)) = True Then
-                                Dim Hi As Integer = DataGridView1(4 * dd + 2, 0).Value
-                                If Val(DataGridView1(2, 0).Value) - Val(DataGridView1(4 * dd + 2, 0).Value) > 20 Then   '月またぎがある週
-                                    updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(M, 5, 2) & "')"
-                                Else    '月またぎがない週
+                            Dim Hi As Integer = DataGridView1(4 * dd + 2, 0).Value
+                            If Val(DataGridView1(2, 0).Value) - Hi > 20 Then   '月が替わった日以降
+                                If partnamecheck(rsnextmonth, rs2, partname(i)) = True Then
+                                    updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(a, 6, 2) & "')"
+                                    listSQL.Add(updateSQL)
+                                Else
+                                    If i = 0 OrElse i = 1 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：丘：" & partname(i))
+                                    ElseIf i = 2 OrElse i = 3 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：虹" & partname(i))
+                                    ElseIf i >= 4 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：光：" & partname(i))
+                                    End If
+                                    Exit Sub
+                                End If
+                            Else    '同じ月
+                                If partnamecheck(rs, rs2, partname(i)) = True Then
                                     updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 2) & "')"
+                                    listSQL.Add(updateSQL)
+                                Else
+                                    If i = 0 OrElse i = 1 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：丘：" & partname(i))
+                                    ElseIf i = 2 OrElse i = 3 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：虹" & partname(i))
+                                    ElseIf i >= 4 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：光：" & partname(i))
+                                    End If
+                                    Exit Sub
                                 End If
-                                listSQL.Add(updateSQL)
-                            Else
-                                If i = 0 OrElse i = 1 Then
-                                    MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：丘：" & partname(i))
-                                ElseIf i = 2 OrElse i = 3 Then
-                                    MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：虹" & partname(i))
-                                ElseIf i >= 4 Then
-                                    MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：光：" & partname(i))
-                                End If
-                                Exit Sub
                             End If
                         End If
                     Next
@@ -1224,6 +1237,11 @@ Public Class 週間表
 
             SQL = "SELECT * FROM KinD WHERE Ym='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 2) & "' AND (Seq2='00' OR ('" & floar & "0' <= Seq2 AND Seq2 <= '" & floar & "9')) and Rdr = '' order by Seq"
             rs.Open(SQL, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
+
+            If DataGridView1(2, 0).Value > 22 Then
+                SQLnextmonth = "SELECT * FROM KinD WHERE YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(a, 6, 2) & "' AND (Seq2='00' OR ('" & floar & "0' <= Seq2 AND Seq2 <= '" & floar & "9')) and Rdr = '' order by Seq"
+                rsnextmonth.Open(SQLnextmonth, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
+            End If
 
             If rs.RecordCount <= 1 Then
                 MsgBox("勤務割に該当月の登録データがありません")
@@ -1245,26 +1263,34 @@ Public Class 週間表
                         If partname(i) = "" Then
 
                         Else
-                            If partnamecheck(rs, rs2, partname(i)) = True Then
-                                Dim Hi As Integer = DataGridView1(4 * dd + 2, 0).Value
-                                If Val(DataGridView1(2, 0).Value) - Val(DataGridView1(4 * dd + 2, 0).Value) > 20 Then   '月またぎがある週
-                                    updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(M, 5, 2) & "')"
-                                Else    '月またぎがない週
+                            Dim Hi As Integer = DataGridView1(4 * dd + 2, 0).Value
+                            If Val(DataGridView1(2, 0).Value) - Hi > 20 Then   '月が替わった日以降
+                                If partnamecheck(rsnextmonth, rs2, partname(i)) = True Then
+                                    updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(a, 6, 2) & "')"
+                                    listSQL.Add(updateSQL)
+                                Else
+                                    If i = 0 OrElse i = 1 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：雪：" & partname(i))
+                                    ElseIf i = 2 OrElse i = 3 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：風：" & partname(i))
+                                    End If
+                                    Exit Sub
+                                End If
+                            Else    '同じ月
+                                If partnamecheck(rs, rs2, partname(i)) = True Then
                                     updateSQL = "UPDATE KinD SET Y" & Hi & " = '" & partwork(i) & "', J" & Hi & " = '" & partwork(i) & "' WHERE (Nam LIKE '%" & partname(i) & "%') And (YM='" & ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 2) & "')"
+                                    listSQL.Add(updateSQL)
+                                Else
+                                    If i = 0 OrElse i = 1 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：雪：" & partname(i))
+                                    ElseIf i = 2 OrElse i = 3 Then
+                                        MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：風：" & partname(i))
+                                    End If
+                                    Exit Sub
                                 End If
-                                listSQL.Add(updateSQL)
-                            Else
-                                If i = 0 OrElse i = 1 Then
-                                    MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：雪：" & partname(i))
-                                ElseIf i = 2 OrElse i = 3 Then
-                                    MsgBox("ﾊﾟｰﾄの勤務割が登録されていません。" & vbCrLf & DataGridView1(4 * dd + 2, 0).Value & "日：風：" & partname(i))
-                                End If
-                                Exit Sub
                             End If
                         End If
-
                     Next
-
                 Next
                 For Each i As String In listSQL
                     cnn.Execute(i)
@@ -1302,7 +1328,7 @@ Public Class 週間表
     Private Sub btnSakujo_Click(sender As System.Object, e As System.EventArgs) Handles btnSakujo.Click
         If MsgBox("削除してよろしいですか？", MsgBoxStyle.YesNo + vbExclamation, "削除確認") = MsgBoxResult.Yes Then
             Dim cnn As New ADODB.Connection
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
 
             Dim Ymd As Date = ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 5)
             Dim YmdAdd7 As Date = Ymd.AddDays(6)
@@ -1335,7 +1361,7 @@ Public Class 週間表
         If rbn2F.Checked = True Then
             If MsgBox("週間表3階の'学習、夜勤等、備考'を取り込みますか？", MsgBoxStyle.YesNo + vbExclamation, "確認") = MsgBoxResult.Yes Then
                 Dim sql As String = "select * from ASHyo3 WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-                cnn.Open(TopForm.DB_Work)
+                cnn.Open(TopForm.DB_Work2)
                 rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockReadOnly)
 
                 'Datagridview1への表示
@@ -1376,7 +1402,7 @@ Public Class 週間表
             If MsgBox("週間表2階の'学習、夜勤等、備考'を取り込みますか？", MsgBoxStyle.YesNo + vbExclamation, "確認") = MsgBoxResult.Yes Then
 
                 Dim sql As String = "select * from ASHyo WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-                cnn.Open(TopForm.DB_Work)
+                cnn.Open(TopForm.DB_Work2)
                 rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockReadOnly)
 
                 'Datagridview1への表示
@@ -1424,7 +1450,7 @@ Public Class 週間表
             Dim cnn As New ADODB.Connection
             Dim rs As New ADODB.Recordset
             Dim sql As String = "select * from ASHyo WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
             rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
 
             If rs.RecordCount > 0 Then
@@ -1499,7 +1525,7 @@ Public Class 週間表
             Dim cnn As New ADODB.Connection
             Dim rs As New ADODB.Recordset
             Dim sql As String = "select * from ASHyo3 WHERE #" & Ymd & "# <= Ymd and Ymd <= #" & YmdAdd7 & "# order by Ymd"
-            cnn.Open(TopForm.DB_Work)
+            cnn.Open(TopForm.DB_Work2)
             rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockReadOnly)
 
             If rs.RecordCount > 0 Then

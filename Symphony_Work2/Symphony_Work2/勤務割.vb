@@ -572,7 +572,7 @@ Public Class 勤務割
         End If
 
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "SELECT * FROM KinD WHERE YM='" & ymStr & "' AND ((Seq2='00' AND Unt='※') OR ('" & floor & "0' <= Seq2 AND Seq2 <= '" & floor & "9')) order by Seq"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
@@ -866,7 +866,7 @@ Public Class 勤務割
     ''' <remarks></remarks>
     Private Sub btnRegist_Click(sender As System.Object, e As System.EventArgs) Handles btnRegist.Click
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         rs.Open("KinD", cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
 
@@ -954,7 +954,7 @@ Public Class 勤務割
         Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択階
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "SELECT * FROM KinD WHERE YM='" & ymStr & "' AND (Seq2='00' OR ('" & floor & "0' <= Seq2 AND Seq2 <= '" & floor & "9')) order by Seq"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
@@ -993,7 +993,7 @@ Public Class 勤務割
         Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択階
         Dim cnn As New ADODB.Connection
-        cnn.Open(TopForm.DB_Work)
+        cnn.Open(TopForm.DB_Work2)
         Dim rs As New ADODB.Recordset
         Dim sql = "SELECT * FROM KinD WHERE YM='" & ymStr & "' AND ((Seq2='00' AND Unt='※') OR ('20' <= Seq2 AND Seq2 <= '39')) order by Seq2" '選択年月の全てのデータ(2階、3階共に)抽出
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)

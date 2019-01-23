@@ -1,7 +1,7 @@
 ﻿Public Class TopForm
     'データベースのパス
     Public dbFilePath As String = My.Application.Info.DirectoryPath & "\Work2.mdb"
-    Public DB_Work As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & dbFilePath
+    Public DB_Work2 As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & dbFilePath
 
     'エクセルのパス
     Public excelFilePass As String = My.Application.Info.DirectoryPath & "\Work2.xls"

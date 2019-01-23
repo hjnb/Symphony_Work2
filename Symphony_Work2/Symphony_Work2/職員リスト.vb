@@ -19,7 +19,7 @@ Public Class 職員リスト
         Dim Ym As String = 週間表.ChangeSeireki(Strings.Left(CType(Me.Owner, 週間表).lblYmd.Text, 9)) & "/" & Strings.Mid(CType(Me.Owner, 週間表).lblYmd.Text, 5, 2)
 
         Dim reader As System.Data.OleDb.OleDbDataReader
-        Dim Cn As New OleDbConnection(TopForm.DB_Work)
+        Dim Cn As New OleDbConnection(TopForm.DB_Work2)
         Dim SQLCm As OleDbCommand = Cn.CreateCommand
         SQLCm.CommandText = "select Nam from KinD WHERE Ym = '" & Ym & "' order by seq2, seq"
         Cn.Open()
