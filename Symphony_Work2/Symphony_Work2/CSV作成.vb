@@ -92,7 +92,7 @@
             'ヘッダー部分作成
             Dim columnCount As Integer = columnCaption.Length - 1
             For i As Integer = 0 To columnCount
-                Dim s As String = EncloseDoubleQuotesIfNeed(columnCaption(i)) '"で囲む
+                Dim s As String = EncloseDoubleQuotes(columnCaption(i)) '"で囲む
                 strResult.Append(s)
                 'カンマ追加
                 If i < columnCount Then
@@ -143,85 +143,57 @@
     ''' <remarks></remarks>
     Private Sub writeWorkData(rs As ADODB.Recordset, sb As System.Text.StringBuilder, count As Integer)
         '表示順
-        sb.Append(EncloseDoubleQuotesIfNeed(count.ToString()) & ",")
+        sb.Append(EncloseDoubleQuotes(count.ToString()) & ",")
         '対象年月
-        sb.Append(EncloseDoubleQuotesIfNeed(Util.checkDBNullValue(rs.Fields("Ym").Value)) & ",")
+        sb.Append(EncloseDoubleQuotes(Util.checkDBNullValue(rs.Fields("Ym").Value)) & ",")
         '勤務表
-        sb.Append(EncloseDoubleQuotesIfNeed("特養") & ",")
+        sb.Append(EncloseDoubleQuotes("特養") & ",")
         '職員№
-        sb.Append(EncloseDoubleQuotesIfNeed("0") & ",")
+        sb.Append(EncloseDoubleQuotes("0") & ",")
         '氏名
-        sb.Append(EncloseDoubleQuotesIfNeed(Util.checkDBNullValue(rs.Fields("Nam").Value)) & ",")
+        sb.Append(EncloseDoubleQuotes(Util.checkDBNullValue(rs.Fields("Nam").Value)) & ",")
         '予形態,予職種
         If Util.checkDBNullValue(rs.Fields("Rdr").Value) <> "" Then
-            sb.Append(EncloseDoubleQuotesIfNeed("常勤専従") & ",")
-            sb.Append(EncloseDoubleQuotesIfNeed("介護職") & ",")
+            sb.Append(EncloseDoubleQuotes("常勤専従") & ",")
+            sb.Append(EncloseDoubleQuotes("介護職") & ",")
         Else
-            sb.Append(EncloseDoubleQuotesIfNeed("常勤以外専従") & ",")
-            sb.Append(EncloseDoubleQuotesIfNeed("介護職ﾊﾟｰﾄ") & ",")
+            sb.Append(EncloseDoubleQuotes("常勤以外専従") & ",")
+            sb.Append(EncloseDoubleQuotes("介護職ﾊﾟｰﾄ") & ",")
         End If
         '予1～予31
         For i As Integer = 1 To 31
             Dim yVal As String = Util.checkDBNullValue(rs.Fields("Y" & i).Value)
             If workDictionary.ContainsKey(yVal) Then
-                sb.Append(EncloseDoubleQuotesIfNeed(workDictionary(yVal)) & ",")
+                sb.Append(EncloseDoubleQuotes(workDictionary(yVal)) & ",")
             Else
-                sb.Append(EncloseDoubleQuotesIfNeed(yVal) & ",")
+                sb.Append(EncloseDoubleQuotes(yVal) & ",")
             End If
         Next
         '予換算
-        sb.Append("" & ",")
+        sb.Append(EncloseDoubleQuotes("") & ",")
         '実形態
-        sb.Append("" & ",")
+        sb.Append(EncloseDoubleQuotes("") & ",")
         '実職種
-        sb.Append("" & ",")
+        sb.Append(EncloseDoubleQuotes("") & ",")
         '実1～実31
         For i As Integer = 1 To 31
             Dim jVal As String = Util.checkDBNullValue(rs.Fields("J" & i).Value)
             If workDictionary.ContainsKey(jVal) Then
-                sb.Append(EncloseDoubleQuotesIfNeed(workDictionary(jVal)) & ",")
+                sb.Append(EncloseDoubleQuotes(workDictionary(jVal)) & ",")
             Else
-                sb.Append(EncloseDoubleQuotesIfNeed(jVal) & ",")
+                sb.Append(EncloseDoubleQuotes(jVal) & ",")
             End If
         Next
         '実換算
-        sb.Append("")
+        sb.Append(EncloseDoubleQuotes(""))
         '改行
         sb.Append(vbCrLf)
     End Sub
 
     ''' <summary>
-    ''' 必要ならば、文字列をダブルクォートで囲む
-    ''' </summary>
-    Private Function EncloseDoubleQuotesIfNeed(field As String) As String
-        If NeedEncloseDoubleQuotes(field) Then
-            Return EncloseDoubleQuotes(field)
-        End If
-        Return field
-    End Function
-
-    ''' <summary>
     ''' 文字列をダブルクォートで囲む
     ''' </summary>
     Private Function EncloseDoubleQuotes(field As String) As String
-        If field.IndexOf(""""c) > -1 Then
-            '"を""とする
-            field = field.Replace("""", """""")
-        End If
         Return """" & field & """"
-    End Function
-
-    ''' <summary>
-    ''' 文字列をダブルクォートで囲む必要があるか調べる
-    ''' </summary>
-    Private Function NeedEncloseDoubleQuotes(field As String) As Boolean
-        Return field.IndexOf(""""c) > -1 OrElse _
-            field.IndexOf(","c) > -1 OrElse _
-            field.IndexOf(ControlChars.Cr) > -1 OrElse _
-            field.IndexOf(ControlChars.Lf) > -1 OrElse _
-            field.StartsWith(" ") OrElse _
-            field.StartsWith(vbTab) OrElse _
-            field.EndsWith(" ") OrElse _
-            field.EndsWith(vbTab)
     End Function
 End Class
