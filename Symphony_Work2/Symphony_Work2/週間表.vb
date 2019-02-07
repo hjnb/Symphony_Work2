@@ -119,7 +119,7 @@ Public Class 週間表
 
         'DataGridView1の行の設定
         For r As Integer = 0 To 39
-            DataGridView1.Rows(r).Height = 15
+            DataGridView1.Rows(r).Height = 14
         Next
 
         'DataGridView2の設定
@@ -163,7 +163,7 @@ Public Class 週間表
 
         'DataGridView2の行の設定
         For r As Integer = 0 To 4
-            DataGridView2.Rows(r).Height = 15
+            DataGridView2.Rows(r).Height = 14
         Next
 
         KeyPreview = True
@@ -369,22 +369,22 @@ Public Class 週間表
         If rbn2F.Checked = True Then    '2階の情報を表示
             Label8.Visible = True
             Label9.Visible = True
-            Label2.Location = New Point(18, 95)
-            Label3.Location = New Point(18, 125)
-            Label4.Location = New Point(18, 214)
-            Label5.Location = New Point(18, 304)
-            Label6.Location = New Point(18, 394)
-            Label7.Location = New Point(18, 469)
-            Label8.Location = New Point(18, 544)
-            Label9.Location = New Point(18, 620)
+            Label2.Location = New Point(18, 92)
+            Label3.Location = New Point(18, 120)
+            Label4.Location = New Point(18, 204)
+            Label5.Location = New Point(18, 288)
+            Label6.Location = New Point(18, 371)
+            Label7.Location = New Point(18, 441)
+            Label8.Location = New Point(18, 511)
+            Label9.Location = New Point(18, 582)
 
             For i As Integer = 10 To 16
-                Controls("Label" & i).Size = New Size(2, 603)
+                Controls("Label" & i).Size = New Size(2, 563)
             Next
 
             DataGridView1.Location = New Point(18, 49)
-            DataGridView1.Size = New Size(1167, 603)
-            DataGridView2.Location = New Point(48, 651)
+            DataGridView1.Size = New Size(1167, 563)
+            DataGridView2.Location = New Point(48, 611)
 
             'DataGridView1行作成
             For i As Integer = 0 To 39
@@ -454,7 +454,7 @@ Public Class 週間表
         If rbn2F.Checked = True Then    '2階の情報を表示
             'DataGridView1行の設定
             For r As Integer = 0 To 39
-                DataGridView1.Rows(r).Height = 15
+                DataGridView1.Rows(r).Height = 14
             Next
 
             For row As Integer = 10 To 22
