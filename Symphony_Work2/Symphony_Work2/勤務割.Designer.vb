@@ -135,7 +135,7 @@ Partial Class 勤務割
         Me.ymBox.EraLabelText = "H31"
         Me.ymBox.EraText = ""
         Me.ymBox.Location = New System.Drawing.Point(41, 9)
-        Me.ymBox.MonthLabelText = "01"
+        Me.ymBox.MonthLabelText = "02"
         Me.ymBox.MonthText = ""
         Me.ymBox.Name = "ymBox"
         Me.ymBox.Size = New System.Drawing.Size(95, 40)
@@ -164,7 +164,7 @@ Partial Class 勤務割
         Me.wordPanel.Controls.Add(Me.Label14)
         Me.wordPanel.Controls.Add(Me.Label16)
         Me.wordPanel.Controls.Add(Me.Label15)
-        Me.wordPanel.Location = New System.Drawing.Point(62, 690)
+        Me.wordPanel.Location = New System.Drawing.Point(62, 650)
         Me.wordPanel.Name = "wordPanel"
         Me.wordPanel.Size = New System.Drawing.Size(999, 57)
         Me.wordPanel.TabIndex = 33
@@ -386,7 +386,7 @@ Partial Class 勤務割
         Me.dgvWork.Location = New System.Drawing.Point(36, 56)
         Me.dgvWork.Name = "dgvWork"
         Me.dgvWork.RowTemplate.Height = 21
-        Me.dgvWork.Size = New System.Drawing.Size(1044, 630)
+        Me.dgvWork.Size = New System.Drawing.Size(1044, 593)
         Me.dgvWork.TabIndex = 16
         '
         '勤務割

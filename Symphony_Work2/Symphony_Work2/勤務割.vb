@@ -307,7 +307,7 @@ Public Class 勤務割
             .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
             .BackgroundColor = Color.FromKnownColor(KnownColor.Control)
             .DefaultCellStyle.SelectionForeColor = Color.Black
-            .RowTemplate.Height = 15.5
+            .RowTemplate.Height = 15
             .ColumnHeadersHeight = 19
             .ShowCellToolTips = False
             .EnableHeadersVisualStyles = False
