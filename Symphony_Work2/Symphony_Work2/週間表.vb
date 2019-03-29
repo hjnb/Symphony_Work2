@@ -1637,6 +1637,12 @@ Public Class 週間表
     End Sub
 
     Private Sub btnInnsatu_Click(sender As System.Object, e As System.EventArgs) Handles btnInnsatu.Click
+        'パスワードフォーム表示
+        Dim passForm As Form = New passwordForm(TopForm.iniFilePath, 2)
+        If passForm.ShowDialog() <> Windows.Forms.DialogResult.OK Then
+            Return
+        End If
+
         Dim Ymd As Date = ChangeSeireki(Strings.Left(lblYmd.Text, 9)) & "/" & Strings.Mid(lblYmd.Text, 5, 5)
         Dim YmdAdd7 As Date = Ymd.AddDays(6)
 
