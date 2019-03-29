@@ -48,8 +48,12 @@ Partial Class 週間表
         Me.btnUp = New System.Windows.Forms.Button()
         Me.lblYmd = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label16
@@ -299,11 +303,33 @@ Partial Class 週間表
         Me.DataGridView2.Size = New System.Drawing.Size(1137, 73)
         Me.DataGridView2.TabIndex = 421
         '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(1292, 109)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.RowTemplate.Height = 21
+        Me.DataGridView3.Size = New System.Drawing.Size(332, 346)
+        Me.DataGridView3.TabIndex = 443
+        '
+        'DataGridView4
+        '
+        Me.DataGridView4.AllowUserToAddRows = False
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(1273, 499)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.RowTemplate.Height = 21
+        Me.DataGridView4.Size = New System.Drawing.Size(192, 222)
+        Me.DataGridView4.TabIndex = 444
+        '
         '週間表
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1279, 829)
+        Me.ClientSize = New System.Drawing.Size(1682, 829)
+        Me.Controls.Add(Me.DataGridView4)
+        Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
@@ -334,6 +360,8 @@ Partial Class 週間表
         Me.Text = "週間表"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -364,4 +392,6 @@ Partial Class 週間表
     Friend WithEvents btnUp As System.Windows.Forms.Button
     Friend WithEvents lblYmd As System.Windows.Forms.Label
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
 End Class

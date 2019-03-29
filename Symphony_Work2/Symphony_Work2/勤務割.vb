@@ -201,7 +201,7 @@ Public Class 勤務割
         workTimeDictionary.Add("H", 4.0)
         workTimeDictionary.Add("I", 3.0)
         workTimeDictionary.Add("J", 5.5)
-        workTimeDictionary.Add("K", 7.0)
+        workTimeDictionary.Add("K", 6.5)
         workTimeDictionary.Add("L", 2.5)
         workTimeDictionary.Add("M", 3.5)
         workTimeDictionary.Add("N", 2.0)
