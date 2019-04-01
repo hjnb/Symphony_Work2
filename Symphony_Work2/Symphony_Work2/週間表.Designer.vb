@@ -307,20 +307,20 @@ Partial Class 週間表
         '
         Me.DataGridView3.AllowUserToAddRows = False
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(1292, 109)
+        Me.DataGridView3.Location = New System.Drawing.Point(1157, 49)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.RowTemplate.Height = 21
-        Me.DataGridView3.Size = New System.Drawing.Size(332, 346)
+        Me.DataGridView3.Size = New System.Drawing.Size(10, 10)
         Me.DataGridView3.TabIndex = 443
         '
         'DataGridView4
         '
         Me.DataGridView4.AllowUserToAddRows = False
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(1273, 499)
+        Me.DataGridView4.Location = New System.Drawing.Point(1173, 49)
         Me.DataGridView4.Name = "DataGridView4"
         Me.DataGridView4.RowTemplate.Height = 21
-        Me.DataGridView4.Size = New System.Drawing.Size(192, 222)
+        Me.DataGridView4.Size = New System.Drawing.Size(10, 10)
         Me.DataGridView4.TabIndex = 444
         '
         '週間表
@@ -328,8 +328,6 @@ Partial Class 週間表
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1682, 829)
-        Me.Controls.Add(Me.DataGridView4)
-        Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
@@ -346,7 +344,6 @@ Partial Class 週間表
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnTorikomi)
-        Me.Controls.Add(Me.btnInnsatu)
         Me.Controls.Add(Me.btnSakujo)
         Me.Controls.Add(Me.btnTouroku)
         Me.Controls.Add(Me.DataGridView1)
@@ -356,6 +353,9 @@ Partial Class 週間表
         Me.Controls.Add(Me.btnUp)
         Me.Controls.Add(Me.lblYmd)
         Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.btnInnsatu)
+        Me.Controls.Add(Me.DataGridView3)
+        Me.Controls.Add(Me.DataGridView4)
         Me.Name = "週間表"
         Me.Text = "週間表"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
