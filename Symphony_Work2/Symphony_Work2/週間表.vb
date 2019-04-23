@@ -1369,17 +1369,17 @@ Public Class 週間表
                     okaPname1 = Util.checkDBNullValue(DataGridView1(4 * dd + 2, 10).Value)
                     okaPwork2 = Util.checkDBNullValue(DataGridView1(4 * dd + 3, 10).Value)
                     okaPname2 = Util.checkDBNullValue(DataGridView1(4 * dd + 4, 10).Value)
-                    hikPwork1 = Util.checkDBNullValue(DataGridView1(4 * dd + 1, 16).Value)
-                    hikPname1 = Util.checkDBNullValue(DataGridView1(4 * dd + 2, 16).Value)
-                    hikPwork2 = Util.checkDBNullValue(DataGridView1(4 * dd + 3, 16).Value)
-                    hikPname2 = Util.checkDBNullValue(DataGridView1(4 * dd + 4, 16).Value)
-                    nijPwork1 = Util.checkDBNullValue(DataGridView1(4 * dd + 1, 22).Value)
-                    nijPname1 = Util.checkDBNullValue(DataGridView1(4 * dd + 2, 22).Value)
-                    nijPwork2 = Util.checkDBNullValue(DataGridView1(4 * dd + 3, 22).Value)
-                    nijPname2 = Util.checkDBNullValue(DataGridView1(4 * dd + 4, 22).Value)
+                    nijPwork1 = Util.checkDBNullValue(DataGridView1(4 * dd + 1, 16).Value)
+                    nijPname1 = Util.checkDBNullValue(DataGridView1(4 * dd + 2, 16).Value)
+                    nijPwork2 = Util.checkDBNullValue(DataGridView1(4 * dd + 3, 16).Value)
+                    nijPname2 = Util.checkDBNullValue(DataGridView1(4 * dd + 4, 16).Value)
+                    hikPwork1 = Util.checkDBNullValue(DataGridView1(4 * dd + 1, 22).Value)
+                    hikPname1 = Util.checkDBNullValue(DataGridView1(4 * dd + 2, 22).Value)
+                    hikPwork2 = Util.checkDBNullValue(DataGridView1(4 * dd + 3, 22).Value)
+                    hikPname2 = Util.checkDBNullValue(DataGridView1(4 * dd + 4, 22).Value)
 
-                    Dim partname() As String = {okaPname1, okaPname2, hikPname1, hikPname2, nijPname1, nijPname2}
-                    Dim partwork() As String = {okaPwork1, okaPwork2, hikPwork1, hikPwork2, nijPwork1, nijPwork2}
+                    Dim partname() As String = {okaPname1, okaPname2, nijPname1, nijPname2, hikPname1, hikPname2}
+                    Dim partwork() As String = {okaPwork1, okaPwork2, nijPwork1, nijPwork2, hikPwork1, hikPwork2}
                     Dim unit As String = ""
                     Dim reader As String = ""
 
@@ -1387,9 +1387,9 @@ Public Class 週間表
                         If i = 0 OrElse i = 1 Then
                             unit = "丘"
                         ElseIf i = 2 OrElse i = 3 Then
-                            unit = "光"
-                        ElseIf i = 4 OrElse i = 5 Then
                             unit = "虹"
+                        ElseIf i = 4 OrElse i = 5 Then
+                            unit = "光"
                         End If
                         If partname(i) = "" Then
 
