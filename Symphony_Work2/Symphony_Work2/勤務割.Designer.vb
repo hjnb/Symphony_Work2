@@ -30,7 +30,6 @@ Partial Class 勤務割
         Me.btnRowAdd = New System.Windows.Forms.Button()
         Me.rbtn2F = New System.Windows.Forms.RadioButton()
         Me.rbtn3F = New System.Windows.Forms.RadioButton()
-        Me.ymBox = New ymdBox.ymdBox()
         Me.wordPanel = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -54,6 +53,7 @@ Partial Class 勤務割
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.dgvWork = New Symphony_Work2.workDataGridView(Me.components)
+        Me.ymBox = New ADBox2.ADBox2()
         Me.wordPanel.SuspendLayout()
         CType(Me.dgvWork, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -111,7 +111,7 @@ Partial Class 勤務割
         'rbtn2F
         '
         Me.rbtn2F.AutoSize = True
-        Me.rbtn2F.Location = New System.Drawing.Point(152, 36)
+        Me.rbtn2F.Location = New System.Drawing.Point(153, 35)
         Me.rbtn2F.Name = "rbtn2F"
         Me.rbtn2F.Size = New System.Drawing.Size(43, 16)
         Me.rbtn2F.TabIndex = 9
@@ -121,25 +121,12 @@ Partial Class 勤務割
         'rbtn3F
         '
         Me.rbtn3F.AutoSize = True
-        Me.rbtn3F.Location = New System.Drawing.Point(152, 9)
+        Me.rbtn3F.Location = New System.Drawing.Point(153, 8)
         Me.rbtn3F.Name = "rbtn3F"
         Me.rbtn3F.Size = New System.Drawing.Size(43, 16)
         Me.rbtn3F.TabIndex = 8
         Me.rbtn3F.Text = "３階"
         Me.rbtn3F.UseVisualStyleBackColor = True
-        '
-        'ymBox
-        '
-        Me.ymBox.boxType = 5
-        Me.ymBox.DateText = ""
-        Me.ymBox.EraLabelText = "H31"
-        Me.ymBox.EraText = ""
-        Me.ymBox.Location = New System.Drawing.Point(41, 9)
-        Me.ymBox.MonthLabelText = "02"
-        Me.ymBox.MonthText = ""
-        Me.ymBox.Name = "ymBox"
-        Me.ymBox.Size = New System.Drawing.Size(95, 40)
-        Me.ymBox.TabIndex = 15
         '
         'wordPanel
         '
@@ -389,14 +376,26 @@ Partial Class 勤務割
         Me.dgvWork.Size = New System.Drawing.Size(1044, 593)
         Me.dgvWork.TabIndex = 16
         '
+        'ymBox
+        '
+        Me.ymBox.dateText = ""
+        Me.ymBox.Location = New System.Drawing.Point(36, 5)
+        Me.ymBox.Mode = 32
+        Me.ymBox.monthText = ""
+        Me.ymBox.Name = "ymBox"
+        Me.ymBox.Size = New System.Drawing.Size(110, 46)
+        Me.ymBox.TabIndex = 15
+        Me.ymBox.textReadOnly = False
+        Me.ymBox.yearText = ""
+        '
         '勤務割
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1115, 754)
+        Me.Controls.Add(Me.ymBox)
         Me.Controls.Add(Me.wordPanel)
         Me.Controls.Add(Me.dgvWork)
-        Me.Controls.Add(Me.ymBox)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnRegist)
@@ -420,7 +419,6 @@ Partial Class 勤務割
     Friend WithEvents btnRowAdd As System.Windows.Forms.Button
     Friend WithEvents rbtn2F As System.Windows.Forms.RadioButton
     Friend WithEvents rbtn3F As System.Windows.Forms.RadioButton
-    Friend WithEvents ymBox As ymdBox.ymdBox
     Friend WithEvents dgvWork As Symphony_Work2.workDataGridView
     Friend WithEvents wordPanel As System.Windows.Forms.Panel
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -444,4 +442,5 @@ Partial Class 勤務割
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents ymBox As ADBox2.ADBox2
 End Class

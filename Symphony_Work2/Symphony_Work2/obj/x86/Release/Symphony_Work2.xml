@@ -231,7 +231,7 @@ Symphony_Work2
 	<param name="floor">階</param>
 	<param name="deleteAfterFlg"></param>
 	<remarks></remarks>
-</member><member name="M:Symphony_Work2.勤務割.ymBox_YmLabelTextChange(System.Object,System.EventArgs)">
+</member><member name="M:Symphony_Work2.勤務割.ymBox_TextChange(System.Object,System.EventArgs)">
 	<summary>
  年月ボックス変更イベント
  </summary>

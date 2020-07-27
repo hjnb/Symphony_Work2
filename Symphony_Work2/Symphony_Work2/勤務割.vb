@@ -81,7 +81,7 @@ Public Class 勤務割
             '(Alt + F11)キー押下
             If IsNothing(abbreviationNamForm) OrElse abbreviationNamForm.IsDisposed Then
                 '同姓略名フォーム表示
-                abbreviationNamForm = New 同姓略名(ymBox.getADStr4Ym())
+                abbreviationNamForm = New 同姓略名(ymBox.getADymStr())
                 abbreviationNamForm.Show()
             End If
         End If
@@ -107,6 +107,11 @@ Public Class 勤務割
 
         'dgv初期設定
         initDgvWork()
+
+        ymBox.textReadOnly = True
+        ymBox.canHoldDownButton = False
+        ymBox.setADStr(Today.ToString("yyyy/MM/dd"))
+        ymBox.setFocus(5)
 
         'ラジオボタンを2階にセット
         rbtn2F.Checked = True
@@ -578,10 +583,7 @@ Public Class 勤務割
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
 
         If rs.RecordCount <= 0 Then '当月データが無い場合
-            Dim warekiStr As String = Util.convADStrToWarekiStr(ymStr & "/01")
-            Dim eraStr As String = warekiStr.Substring(0, 3)
-            Dim monthStr As String = warekiStr.Substring(4, 2)
-            Dim result As DialogResult = MessageBox.Show(eraStr & "年" & monthStr & "月分は登録されていません" & Environment.NewLine & "登録しますか？", "Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            Dim result As DialogResult = MessageBox.Show(year & "年" & month & "月分は登録されていません" & Environment.NewLine & "登録しますか？", "Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If result = Windows.Forms.DialogResult.Yes Then
                 rs.Close()
 
@@ -673,8 +675,11 @@ Public Class 勤務割
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub ymBox_YmLabelTextChange(sender As Object, e As System.EventArgs) Handles ymBox.YmLabelTextChange
-        Dim ym As String = ymBox.getADStr4Ym() '選択年月
+    Private Sub ymBox_TextChange(sender As Object, e As System.EventArgs) Handles ymBox.YmdTextChange
+        If Not rbtn2F.Checked AndAlso Not rbtn3F.Checked Then
+            Return
+        End If
+        Dim ym As String = ymBox.getADymStr() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択されている階
         displayWork(ym, floor) '表示
     End Sub
@@ -690,7 +695,7 @@ Public Class 勤務割
         If rbtn.Checked = True Then
             rbtn.BackColor = Color.FromArgb(255, 255, 0)
             Dim floor As String = rbtn.Name.Substring(4, 1)
-            displayWork(ymBox.getADStr4Ym(), floor) '選択年月、階のデータ表示
+            displayWork(ymBox.getADymStr(), floor) '選択年月、階のデータ表示
         Else
             rbtn.BackColor = Color.FromKnownColor(KnownColor.Control)
         End If
@@ -870,7 +875,7 @@ Public Class 勤務割
         Dim rs As New ADODB.Recordset
         rs.Open("KinD", cnn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockPessimistic)
 
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択階
         Dim seq As Integer = 2
         Dim existsUnt As Boolean
@@ -951,7 +956,7 @@ Public Class 勤務割
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnDelete_Click(sender As System.Object, e As System.EventArgs) Handles btnDelete.Click
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択階
         Dim cnn As New ADODB.Connection
         cnn.Open(TopForm.DB_Work2)
@@ -990,7 +995,7 @@ Public Class 勤務割
             Return
         End If
 
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim floor As String = If(rbtn2F.Checked, "2", "3") '選択階
         Dim cnn As New ADODB.Connection
         cnn.Open(TopForm.DB_Work2)
@@ -1159,10 +1164,10 @@ Public Class 勤務割
     ''' <remarks></remarks>
     Private Function writeWorkTotalTable(osheet As Object, cnn As ADODB.Connection, type As String) As Boolean
         '共通部分
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim year As Integer = CInt(ymStr.Split("/")(0))
         Dim month As Integer = CInt(ymStr.Split("/")(1))
-        osheet.Range("E2").value = ymBox.EraLabelText & " 年 " & month & " 月" '年月
+        osheet.Range("E2").value = year & " 年 " & month & " 月" '年月
         Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month) '月の日数
         Dim firstDay As DateTime = New DateTime(year, month, 1)
         Dim weekNumber As Integer = CInt(firstDay.DayOfWeek) '初日の曜日のindex
@@ -1321,10 +1326,10 @@ Public Class 勤務割
     ''' <remarks></remarks>
     Private Function writeWorkTable(osheet As Object, cnn As ADODB.Connection, type As String) As Boolean
         '共通部分
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim year As Integer = CInt(ymStr.Split("/")(0))
         Dim month As Integer = CInt(ymStr.Split("/")(1))
-        osheet.Range("E2").value = ymBox.EraLabelText & " 年 " & month & " 月" '年月
+        osheet.Range("E2").value = year & " 年 " & month & " 月" '年月
         Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month) '月の日数
         Dim firstDay As DateTime = New DateTime(year, month, 1)
         Dim weekNumber As Integer = CInt(firstDay.DayOfWeek) '初日の曜日のindex
@@ -1484,11 +1489,11 @@ Public Class 勤務割
     ''' <param name="cnn">データベースコネクション</param>
     ''' <remarks></remarks>
     Private Sub writePersonalCalendar(oSheet As Object, cnn As ADODB.Connection)
-        Dim ymStr As String = ymBox.getADStr4Ym() '選択年月
+        Dim ymStr As String = ymBox.getADymStr() '選択年月
         Dim year As Integer = CInt(ymStr.Split("/")(0))
         Dim month As Integer = CInt(ymStr.Split("/")(1))
-        oSheet.Range("C1").value = ymBox.EraLabelText & " 年 " & month & " 月" '年月
-        oSheet.Range("C31").value = ymBox.EraLabelText & " 年 " & month & " 月" '年月
+        oSheet.Range("C1").value = year & " 年 " & month & " 月" '年月
+        oSheet.Range("C31").value = year & " 年 " & month & " 月" '年月
 
         Dim sql As String = "SELECT * FROM KinD WHERE YM='" & ymStr & "' AND ((Seq2='00' AND Unt='※') OR ('20' <= Seq2 AND Seq2 <= '39')) order by Seq2, Seq" '選択年月の全てのデータ(2階、3階共に)抽出
         Dim rs As New ADODB.Recordset
