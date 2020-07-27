@@ -267,7 +267,7 @@ Partial Class 週間表
         '
         'btnDown
         '
-        Me.btnDown.Location = New System.Drawing.Point(162, 27)
+        Me.btnDown.Location = New System.Drawing.Point(177, 27)
         Me.btnDown.Name = "btnDown"
         Me.btnDown.Size = New System.Drawing.Size(17, 19)
         Me.btnDown.TabIndex = 417
@@ -276,7 +276,7 @@ Partial Class 週間表
         '
         'btnUp
         '
-        Me.btnUp.Location = New System.Drawing.Point(162, 9)
+        Me.btnUp.Location = New System.Drawing.Point(177, 9)
         Me.btnUp.Name = "btnUp"
         Me.btnUp.Size = New System.Drawing.Size(17, 19)
         Me.btnUp.TabIndex = 416
@@ -289,9 +289,9 @@ Partial Class 週間表
         Me.lblYmd.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblYmd.Location = New System.Drawing.Point(31, 19)
         Me.lblYmd.Name = "lblYmd"
-        Me.lblYmd.Size = New System.Drawing.Size(126, 19)
+        Me.lblYmd.Size = New System.Drawing.Size(134, 19)
         Me.lblYmd.TabIndex = 415
-        Me.lblYmd.Text = "H30.12.31 (日)"
+        Me.lblYmd.Text = "2020.12.31 (日)"
         '
         'DataGridView2
         '

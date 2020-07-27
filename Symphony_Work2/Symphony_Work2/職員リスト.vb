@@ -16,8 +16,7 @@ Public Class 職員リスト
     Private Sub 職員リスト_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         btnPaint.BackColor = Color.FromArgb(255, 192, 255)
 
-        Dim Ym As String = 週間表.ChangeSeireki(Strings.Left(CType(Me.Owner, 週間表).lblYmd.Text, 9)) & "/" & Strings.Mid(CType(Me.Owner, 週間表).lblYmd.Text, 5, 2)
-
+        Dim Ym As String = Strings.Left(CType(Me.Owner, 週間表).lblYmd.Text, 10)
         Dim reader As System.Data.OleDb.OleDbDataReader
         Dim Cn As New OleDbConnection(TopForm.DB_Work2)
         Dim SQLCm As OleDbCommand = Cn.CreateCommand
