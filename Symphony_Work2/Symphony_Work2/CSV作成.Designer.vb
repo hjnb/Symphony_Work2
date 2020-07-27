@@ -24,8 +24,8 @@ Partial Class CSV作成
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnExecution = New System.Windows.Forms.Button()
-        Me.ymBox = New ymdBox.ymdBox()
         Me.saveCsvFileDialog = New System.Windows.Forms.SaveFileDialog()
+        Me.ymBox = New ADBox2.ADBox2()
         Me.SuspendLayout()
         '
         'Label1
@@ -50,25 +50,24 @@ Partial Class CSV作成
         '
         'ymBox
         '
-        Me.ymBox.boxType = 7
-        Me.ymBox.DateText = ""
-        Me.ymBox.EraLabelText = "H31"
-        Me.ymBox.EraText = ""
-        Me.ymBox.Location = New System.Drawing.Point(106, 13)
-        Me.ymBox.MonthLabelText = "01"
-        Me.ymBox.MonthText = ""
+        Me.ymBox.dateText = ""
+        Me.ymBox.Location = New System.Drawing.Point(118, 13)
+        Me.ymBox.Mode = 32
+        Me.ymBox.monthText = ""
         Me.ymBox.Name = "ymBox"
-        Me.ymBox.Size = New System.Drawing.Size(120, 46)
+        Me.ymBox.Size = New System.Drawing.Size(110, 46)
         Me.ymBox.TabIndex = 3
+        Me.ymBox.textReadOnly = False
+        Me.ymBox.yearText = ""
         '
         'CSV作成
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(449, 396)
+        Me.Controls.Add(Me.ymBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnExecution)
-        Me.Controls.Add(Me.ymBox)
         Me.Name = "CSV作成"
         Me.Text = "勤務割CSV作成"
         Me.ResumeLayout(False)
@@ -77,6 +76,6 @@ Partial Class CSV作成
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnExecution As System.Windows.Forms.Button
-    Friend WithEvents ymBox As ymdBox.ymdBox
     Friend WithEvents saveCsvFileDialog As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents ymBox As ADBox2.ADBox2
 End Class
